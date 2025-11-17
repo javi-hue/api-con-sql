@@ -29,3 +29,5 @@ Return db;
 
 Export función getDB(){
  if (!db) throw new Error("DB no inicializada");
+Return db;
+} 
