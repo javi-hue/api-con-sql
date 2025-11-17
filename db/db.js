@@ -26,3 +26,6 @@ export async function initDB() {
 
 Return db;
 } 
+
+Export función getDB(){
+ if (!db) throw new Error("DB no inicializada");
