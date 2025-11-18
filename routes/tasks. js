@@ -1,1 +1,14 @@
-. 
+import express from "express";
+import * as tasksCtrl from "../controllers/tasks.js";
+import { validateTask } from "../middleware/validation.js";
+import { authenticate } from "../middleware/auth.js";
+
+
+const router = express.Router();
+router.use(authenticate);
+router.get("/", tasksCtrl.listTasks);
+router.get("/:id", tasksCtrl.getTask);
+router.post("/", validateTask, tasksCtrl.createTask);
+router.put("/:id", validateTask, tasksCtrl.updateTask);
+router.delete("/:id", tasksCtrl.deleteTask);
+export default router; 
